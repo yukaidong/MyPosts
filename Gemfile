@@ -24,6 +24,9 @@ gem 'jquery-rails', '2.2.1'
 gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
+# Use ActiveModel has_secure_password
+gem 'bcrypt-ruby', '~> 3.1.2'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -32,9 +35,6 @@ end
 group :production do
 	gem 'pg', '0.15.1'
 end
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use unicorn as the app server
 # gem 'unicorn'
