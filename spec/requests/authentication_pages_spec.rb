@@ -20,7 +20,7 @@ describe "AuthenticationPages" do
 
 			describe "after clicking another page" do
 				before {click_link "Help"}
-				it {should_not have_selector('div.alert.alert-danger')}
+				it {should_not have_error_message}
 			end
 		end
 
