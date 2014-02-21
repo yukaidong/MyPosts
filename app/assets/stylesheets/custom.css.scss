@@ -1,6 +1,7 @@
 /* mixins, variables, etc. */
 
 $grayMediumLight: #eaeaea;
+$grayLighter: #eee;
 
 @mixin box_sizing {
   -moz-box-sizing: border-box;
@@ -31,7 +32,6 @@ textarea {
   margin-bottom: 10px;
 }
 
-
 /* typography */
 
 h1, h2, h3, h4, h5, h6 {
@@ -59,6 +59,10 @@ p {
   line-height: 1.7em;
 }
 
+/* images */
+.img-sm{
+  width: 50px;
+}
 
 /* header */
 
@@ -166,3 +170,18 @@ aside {
   @extend .control-group;
   @extend .error;
  }
+
+/* Users index */
+
+.users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
