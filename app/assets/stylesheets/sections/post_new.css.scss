@@ -1,0 +1,17 @@
+#post_title, #post_content{
+	border: 0;
+	width: 100%;
+ 	outline: 0;
+
+}
+
+#post_title{
+	font-size: 40px;
+	height: 80px;
+}
+
+#post_content{
+	overflow-y:hidden ;
+	font-size: 20px;
+	min-height: 200px;
+}

@@ -1,6 +1,10 @@
 @import 'globals/variables';
 @import 'globals/mixins';
 /* universal */
+*{
+  padding: 0;
+  margin: 0;
+}
 
 html {
   overflow-y: scroll;

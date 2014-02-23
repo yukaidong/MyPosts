@@ -1,0 +1,8 @@
+<% provide(:title, 'New Post') %>
+<% if signed_in? %>
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3">
+			<%= render 'posts/new_post_form' %>
+		</div>
+	</div>
+<% end %>
