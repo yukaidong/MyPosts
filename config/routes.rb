@@ -4,6 +4,7 @@ MyPosts::Application.routes.draw do
 
   resources :users
   match '/signup', to: 'users#new', via: 'get'
+  get 'users/:id/:tag', to:'users#show', as: :user_tag
 
   resources :sessions, only: [:new, :create, :destroy]
   match '/signin', to: 'sessions#new', via: 'get'

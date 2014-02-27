@@ -20,6 +20,9 @@ describe User do
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
   it { should respond_to(:posts) }
+  it { should respond_to(:tag ) }
+  it { should respond_to(:owned_tags) }
+  it { should respond_to(:owned_taggings) }
 
   it { should be_valid }
   it { should_not be_admin}
@@ -100,6 +103,14 @@ describe User do
       expect(posts).not_to be_empty
       posts.each do |post|
         expect(Post.where(id: post.id)).to be_empty
+      end
+    end
+
+    describe "as a tagger" do
+      it "should be able to tag its post" do
+        @user.tag(older_post, :with=> "commerce, finance", :on => :tags) 
+        older_post.reload
+        expect(older_post.tags_from(@user)).to eq ["commerce","finance"]
       end
     end
 

@@ -13,6 +13,7 @@ class PostsController < ApplicationController
   def create
 	 	@post = current_user.posts.build(post_params)
     if @post.save
+      current_user.tag(@post, :with => params[:post][:tag_list], :on => :tags)
       flash[:success] = "Post created!"
       redirect_to @post
     else
@@ -21,7 +22,9 @@ class PostsController < ApplicationController
 	end 
 
   def show
-    
+    @post = Post.find(params[:id])
+    @tags = @post.tag_list
+    @user = User.find(@post.user_id)
   end
 
   def destroy
@@ -31,7 +34,7 @@ class PostsController < ApplicationController
 
   private
     def post_params
-      params.require(:post).permit(:title, :content)
+      params.require(:post).permit(:title, :content, :tag_list)
     end
 
     def correct_user

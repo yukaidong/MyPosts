@@ -11,8 +11,12 @@ class UsersController < ApplicationController
   end
 
   def show
-  	@user = User.find(params[:id])
-    @posts = @user.posts.paginate(page: params[:page])
+    @user = User.find(params[:id])
+    if params[:tag]
+      @posts = @user.posts.tagged_with(params[:tag],:on => :tags,:owned_by => @user).paginate(page:params[:page])
+    else
+      @posts = @user.posts.paginate(page: params[:page])
+    end
   end
 
   def create

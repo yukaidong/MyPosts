@@ -13,6 +13,7 @@ FactoryGirl.define do
   factory :post do
     title "test"
   	content "Hello World"
+    tag_list "tag1,tag2"
   	user
   end
 end

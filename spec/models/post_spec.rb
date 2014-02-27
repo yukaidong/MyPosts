@@ -10,6 +10,9 @@ describe Post do
 	it { should respond_to(:user_id) }
 	it { should respond_to(:user) }
 	its(:user) { should eq user }
+	it { should respond_to(:tags_from) }
+  it { should respond_to(:owner_tags_on) }
+
 
 	it { should be_valid }
 
@@ -31,6 +34,12 @@ describe Post do
 	describe "with blank content" do
 		before { @post.content = " " }
 		it { should_not be_valid }
+	end
+
+	it "shoule be taggable" do
+		user.tag(@post, :with => "commerce, finance", :on => :tags)
+
+		expect(@post.tags_from(user)).to eq ["commerce","finance"]
 	end
 
 end
