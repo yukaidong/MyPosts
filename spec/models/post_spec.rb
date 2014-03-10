@@ -11,7 +11,7 @@ describe Post do
 	it { should respond_to(:user) }
 	its(:user) { should eq user }
 	it { should respond_to(:tags_from) }
-  it { should respond_to(:owner_tags_on) }
+  	it { should respond_to(:owner_tags_on) }
 
 
 	it { should be_valid }

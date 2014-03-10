@@ -3,7 +3,7 @@
 	<div class="post_field field">
 		<div class="form-group">
 		<%= f.text_field :title, placeholder:"Title" %>
-		<%= f.text_field :tag_list, placeholder: "Tags"%>
+		<%= f.text_field :tag_list, placeholder: "Tags split by ','"%>
 		<%= f.hidden_field :content %>
 		<p></p>
 		<section id = "content", contenteditable = "true">
@@ -11,9 +11,7 @@
 		</section> 
 		</div>
 	</div>
-	
-	<%= f.submit "Post", class: "btn btn-primary", :onmouseover => "getContent()" %>
-	
+	<%= f.submit "Post", class: "btn btn-primary", :onclick => "getContent()" %>
 <% end %>
 
 <script type="text/javascript">
@@ -22,4 +20,3 @@
 		document.getElementById("post_content").value = document.getElementById("content").innerHTML;
 	}
 </script>
-
